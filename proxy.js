@@ -192,6 +192,7 @@ app.get('/api/tags', async (req, res) => {
         size: 0,
         digest: crypto.createHash('sha256').update(model.id).digest('hex')
       }))
+      .sort((a, b) => a.name.localeCompare(b.name)) 
     };
 
     console.log('Sending /api/tags response:', JSON.stringify(openRouterModels, null, 2));
